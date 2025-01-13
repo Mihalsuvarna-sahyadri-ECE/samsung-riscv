@@ -74,27 +74,49 @@ Opcode:For addi, the opcode is 0010011 (7 bits).
 Machine Code (Second Instruction): addi a5, a5, 100
 **Binary**:0000000001100100 01111 000 01111 0010011
 Hexadecimal:0x00030313
-# 4 Instruction: jal ra, 10414
-Machine Code **Binary**: 0000001000101110101111000000000000011101111
-Machine Code (Hex): 0x0052AFF7
-# 5 Instruction: lui a0, 0x21
-Machine Code **Binary**: 00000000001000010000000001101111
-Machine Code (Hex): 0x000210F3
-# 6 Instruction: sub a5, a5, s0
-Machine Code **Binary**: 0000000 01100 00101 000 10000 0110011
-Machine Code (Hex): 0x00C28233
-# 7 Instruction: addiw a5, a5, -1
-Machine Code **Binary**: 111111111111 00101 000 00101 0010011
+# Instruction: addiw a5, a5, -1
+Machine Code (Binary): 111111111111 00101 000 00101 0010011
 Machine Code (Hex): 0xFFF30313
-# 8 Instruction:  mv a0, s0
-Machine Code **Binary**: 0000000 00000 10111 000 00000 0110011
-Machine Code (Hex): 0x00030233
-# 9 Instruction: bnez a5, 10190 <main+0xc>
-Machine Code **Binary**: 111110011111 01010 001 01010 1100011
+# Instruction: bnez a5, 10190 <main+0xc>
+Machine Code (Binary): 111110011111 01010 001 01010 1100011
 Machine Code (Hex): 0xF7A28563
-# 10 Instruction: srai s1, a5, 0x3
-Machine Code **Binary**: 000000000011 00101 101 00001 0010011
-Machine Code (Hex): 0x003303B3
+# Instruction: lui a1, 0x1
+Machine Code (Binary): 000000000001 00001 00000 00000 0110111
+Machine Code (Hex): 0x00100037
+# Instruction: addi a1, a1, 954
+Machine Code (Binary): 000000111110 00001 000 01001 0010011
+Machine Code (Hex): 0x0003C293
+# Instruction: lui a0, 0x21
+Machine Code (Binary): 000000000010 00000 10000 00000 0110111
+Machine Code (Hex): 0x00021037
+# Instruction: addi a0, a0, 384
+Machine Code (Binary): 000000011000 00000 000 00000 0010011
+Machine Code (Hex): 0x01830313
+# Instruction: jal ra, 10414
+Machine Code (Binary): 0000001000101110101111000000000000011101111
+Machine Code (Hex): 0x0052AFF7
+# Instruction: li a0, 0
+Machine Code (Binary): 000000000000 00000 000 00000 0010011
+Machine Code (Hex): 0x00030313
+# Instruction: ld ra, 8(sp)
+Machine Code (Binary): 000000000010 00000 01100 000 00001 0110011
+Machine Code (Hex): 0x002303B3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
