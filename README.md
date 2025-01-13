@@ -87,8 +87,19 @@ Machine Code (Hex): 0x00C28233
 Machine Code **Binary**: 111111111111 00101 000 00101 0010011
 Machine Code (Hex): 0xFFF30313
 # 8 Instruction:  mv a0, s0
-Machine Code **Binary**: `0000000 00000 10111 000 00000 0110011
-Machine Code (Hex): `0x00030233`
+Machine Code **Binary**: 0000000 00000 10111 000 00000 0110011
+Machine Code (Hex): 0x00030233
+# 9 Instruction: bnez a5, 10190 <main+0xc>
+Machine Code **Binary**: 111110011111 01010 001 01010 1100011
+Machine Code (Hex): 0xF7A28563
+# 10 Instruction: srai s1, a5, 0x3
+Machine Code **Binary**: 000000000011 00101 101 00001 0010011
+Machine Code (Hex): 0x003303B3
+
+
+
+
+
 
 
 
