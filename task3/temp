@@ -1,0 +1,99 @@
+# 1 Instruction: addi sp, sp, -16
+Opcode: 0010011 
+Immediate: -16 
+Source Register 1 (rs1): sp (x2, 5 bits)
+Destination Register (rd): sp (x2, 5 bits)
+Function (funct3): 000 (3 bits)
+# Breakdown:
+Immediate (-16):-16 in 12-bit signed binary is 1111111111110000 (12 bits).
+Source Register 1 (rs1) (sp = x2):x2 in binary is 00010 (5 bits).
+Destination Register (rd) (sp = x2):x2 in binary is 00010 (5 bits).
+Function (funct3):addi has funct3 = 000 (3 bits).
+Opcode:addi has an opcode of 0010011 (7 bits).
+Machine Code:
+**Binary**:
+1111111111110000 00010 000 00010 0010011
+**Hexadecima**l:0xFFF0A023
+# 2 Instruction: sd ra, 8(sp)
+Opcode: 0100011 (7 bits)
+Immediate: 8 (split into 12 bits)
+Source Register 1 (rs1): sp (x2, 5 bits)
+Source Register 2 (rs2): ra (x1, 5 bits)
+Function (funct3): 011 (3 bits)
+# Breakdown:
+Immediate (8):8 in 12-bit signed binary is 000000000010 (12 bits).
+Immediate [11:5] = 0000000 (7 bits).
+Immediate [4:0] = 01000 (5 bits).
+Source Register 1 (rs1) (sp = x2):x2 in binary is 00010 (5 bits).
+Source Register 2 (rs2) (ra = x1):x1 in binary is 00001 (5 bits).
+Function (funct3):For sd, the funct3 value is 011 (3 bits).
+Opcode:For sd, the opcode is 0100011 (7 bits).
+Machine Code:
+**Binary**:0000000 01000 00001 011 00010 0100011
+Hexadecimal:0x00030223
+# 3 Instruction: li a5, 100
+Opcode: 0110111 (7 bits)
+Immediate: 0 (split into 20 bits for lui instruction)
+Source Register 1 (rs1): Not used in lui
+Destination Register (rd): a5 (x15, 5 bits)
+Function (funct3): Not applicable for lui
+# Breakdown:
+Immediate [31:12] (0):0 in 20 bits is 00000000000000000000 (20 bits).
+Destination Register (rd) (a5 = x15):x15 in binary is 01111 (5 bits).
+Opcode:For lui, the opcode is 0110111 (7 bits).
+Machine Code (First Instruction): lui a5, 0x0
+**Binary**:00000000000000000000 01111 0110111
+Hexadecimal:0x00007037
+# 3.1 Instruction: addi a5, a5, 100
+Opcode: 0010011 (7 bits)
+Immediate: 100 (split into 12 bits)
+Source Register 1 (rs1): a5 (x15, 5 bits)
+Destination Register (rd): a5 (x15, 5 bits)
+Function (funct3): 000 (3 bits)
+# Breakdown:
+Immediate (100):100 in 12 bits is 0000000001100100 (12 bits).
+Source Register 1 (rs1) (a5 = x15):x15 in binary is 01111 (5 bits).
+Destination Register (rd) (a5 = x15):x15 in binary is 01111 (5 bits).
+Function (funct3):For addi, funct3 = 000 (3 bits).
+Opcode:For addi, the opcode is 0010011 (7 bits).
+Machine Code (Second Instruction): addi a5, a5, 100
+**Binary**:0000000001100100 01111 000 01111 0010011
+Hexadecimal:0x00030313
+# 4 Instruction: addiw a5, a5, -1
+Machine Code **Binary**: 111111111111 00101 000 00101 0010011
+Machine Code (Hex): 0xFFF30313
+# 5 Instruction: bnez a5, 10190 <main+0xc>
+Machine Code **Binary**: 111110011111 01010 001 01010 1100011
+Machine Code (Hex): 0xF7A28563
+# 6 Instruction: lui a1, 0x1
+Machine Code **Binary**: 000000000001 00001 00000 00000 0110111
+Machine Code (Hex): 0x00100037
+# 7 Instruction: addi a1, a1, 954
+Machine Code **Binary**: 000000111110 00001 000 01001 0010011
+Machine Code (Hex): 0x0003C293
+# 8 Instruction: lui a0, 0x21
+Machine Code **Binary**: 000000000010 00000 10000 00000 0110111
+Machine Code (Hex): 0x00021037
+# 9 Instruction: addi a0, a0, 384
+Machine Code **Binary**: 000000011000 00000 000 00000 0010011
+Machine Code (Hex): 0x01830313
+# 10 Instruction: jal ra, 10414
+Machine Code **Binary**: 0000001000101110101111000000000000011101111
+Machine Code (Hex): 0x0052AFF7
+# 11 Instruction: li a0, 0
+Machine Code **Binary**: 000000000000 00000 000 00000 0010011
+Machine Code (Hex): 0x00030313
+# 12 Instruction: ld ra, 8(sp)
+Machine Code **Binary**: 000000000010 00000 01100 000 00001 0110011
+Machine Code (Hex): 0x002303B3
+# 13 Instruction: addi sp, sp, 16
+Machine Code **Binary**: 000000000001 11101 000 11101 0010011
+Machine Code (Hex): 0x00118193
+# 14 Instruction: ret
+Machine Code **Binary**: 000000000000 00000 000 00000 1101111
+Machine Code (Hex): 0x00008067
+# 15 Instruction: mv a1, a0
+Machine Code **Binary**: 0000000 00000 00001 000 00000 0110011
+Machine Code (Hex): 0x00030233
+
+
