@@ -110,6 +110,15 @@ Machine Code (Hex): 0x00008067
 # 15 Instruction: mv a1, a0
 Machine Code **Binary**: 0000000 00000 00001 000 00000 0110011
 Machine Code (Hex): 0x00030233
+# TASK 4
+compiled the Verilog files for the RISC-V core and the testbench using Icarus Verilog (iverilog), then ran the simulation with vvp, generating a VCD file that records the signal transitions over time.Then opened this VCD file in GTKWave to visualize the waveforms of various signals, such as clock, reset, input/output data, and control signals. These waveforms allow us to observe the behavior of the core and verify its functionality during the simulation.
+
+
+
+
+
+
+
 
 
 
