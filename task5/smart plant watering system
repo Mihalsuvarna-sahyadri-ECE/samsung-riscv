@@ -14,3 +14,49 @@ Soil Moisture Sensor to VSD Squadron Mini:
 Signal Pin (AO or DO) → Connect to an analog input pin (e.g., A0) on the VSD board if it's an analog sensor, or a GPIO pin (e.g., pin 4) if it's a digital sensor.
 VCC → Connect to 3.3V or 5V (depending on the sensor’s voltage requirement and your VSD board's supply).
 GND → Connect to the GND pin of the VSD Squadron Mini.
+code:
+// Define pins
+#define MOISTURE_SENSOR_PIN A0   // Analog pin for soil moisture sensor
+#define MOTOR_IN1_PIN 2          // GPIO pin for motor driver IN1
+#define MOTOR_IN2_PIN 3          // GPIO pin for motor driver IN2
+#define THRESHOLD 500            // Moisture level threshold (adjust as needed)
+
+// Setup the system
+void setup() {
+    // Set motor control pins as outputs
+    pinMode(MOTOR_IN1_PIN, OUTPUT);
+    pinMode(MOTOR_IN2_PIN, OUTPUT);
+    
+    // Start with motor turned off
+    digitalWrite(MOTOR_IN1_PIN, LOW);
+    digitalWrite(MOTOR_IN2_PIN, LOW);
+
+    // Initialize the Serial monitor for debugging
+    Serial.begin(9600);
+}
+
+// Main loop
+void loop() {
+    // Read moisture sensor value (analog input)
+    int moistureValue = analogRead(MOISTURE_SENSOR_PIN);
+    
+    // Print moisture value to Serial monitor for debugging
+    Serial.print("Moisture Value: ");
+    Serial.println(moistureValue);
+    
+    // Check if the soil is dry (below threshold)
+    if (moistureValue < THRESHOLD) {
+        // Soil is dry, turn on the motor to water the plants
+        digitalWrite(MOTOR_IN1_PIN, HIGH);  // Motor direction 1
+        digitalWrite(MOTOR_IN2_PIN, LOW);   // Motor direction 1
+        Serial.println("Watering plants...");
+    } else {
+        // Soil is wet, turn off the motor
+        digitalWrite(MOTOR_IN1_PIN, LOW);   // Stop motor
+        digitalWrite(MOTOR_IN2_PIN, LOW);   // Stop motor
+        Serial.println("Soil is wet, motor off.");
+    }
+
+    // Wait for a second before rechecking
+    delay(1000);
+}
