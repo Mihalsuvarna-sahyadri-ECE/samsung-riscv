@@ -1,0 +1,16 @@
+This project uses the VSD Squadron Mini to automatically water plants based on soil moisture levels. A soil moisture sensor checks if the soil is dry. If it is, the VSD board controls a DC motor through a motor driver to pump water to the plants. Once the soil is wet, the motor stops. This simple system helps keep plants healthy by providing water only when needed, saving time and resources.
+connections:
+Motor Driver to VSD Squadron Mini:
+IN1 → Connect to a GPIO pin on the VSD ( pin 2).
+IN2 → Connect to another GPIO pin on the VSD (pin 3).
+Enable Pin (EN) → Connect to 3.3V or another GPIO pin for PWM control .
+GND → Connect to the GND pin of the VSD.
+VCC → Connect to a 5V supply.
+DC Motor to Motor Driver:
+Connect the motor terminals to OUT1 and OUT2 on the motor driver.
+Power Supply for the Motor:
+Provide a separate power supply to the motor driver's Motor VCC pin for the motor's voltage ( 9V or 12V).
+Soil Moisture Sensor to VSD Squadron Mini:
+Signal Pin (AO or DO) → Connect to an analog input pin (e.g., A0) on the VSD board if it's an analog sensor, or a GPIO pin (e.g., pin 4) if it's a digital sensor.
+VCC → Connect to 3.3V or 5V (depending on the sensor’s voltage requirement and your VSD board's supply).
+GND → Connect to the GND pin of the VSD Squadron Mini.
